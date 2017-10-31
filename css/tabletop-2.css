@@ -1,0 +1,156 @@
+
+.wear{
+	width: 100%;
+	height: 10rem;
+	border-bottom:0.1rem solid #FFFFFF ;
+	background: #29BDE0;
+	 position: fixed;
+	 top: 0;
+	 z-index: 1;
+	text-align: center;
+}
+.wear span{
+	font-size: 4rem;
+	color: #FFFFFF;
+}
+.wear_img{
+	padding-top: 2.6rem;
+	margin: 0 2rem;
+}
+.wear img{
+	
+	vertical-align: middle;
+}
+
+.wear-3 {
+	height: 88rem;
+	background: #29bde0;
+}
+.print{
+	height: 24.5rem;
+	padding-top: 2rem;
+	 padding-left: 8rem;
+	 padding-right: 8rem;
+	 text-align: center;
+	 margin-top: 10rem;
+}
+
+.print .print-1{
+	font-size: 4rem;
+	color: #FFFFFF;
+	position: relative;
+	top: -4.8rem;
+}
+
+.print-3 .time-1{
+	width: 50rem;
+	font-size: 3.3rem;
+	color: #FFFFFF;
+	margin: auto;
+	letter-spacing: 0.1rem;
+}
+.print-3 .col{
+	color: #000000;
+	margin-right:3rem ;
+}
+#killer{
+	color: #FFFFFF;
+	margin-right: 5rem;
+}
+#people{
+	color: #FFFFFF;
+}
+.time span{
+	margin-left: 5rem;
+}
+.print-3{
+	 padding-left: 7.5rem;
+	 padding-right: 8rem;
+}
+.print-3 .time{
+	width: 50rem;
+	font-size: 2.6rem;
+	color: #ffffff;
+	margin: auto;
+	letter-spacing: 0.2rem;
+	margin-top: 4rem;
+	margin-bottom: 2rem;
+}
+
+.print-3 input{
+	width: 2rem;
+	height: 2.8rem;
+	border: none;
+	outline-style: none;
+	background: #29bde0;
+	text-align: center;
+}
+.print_arr{
+	
+	background: #FFFFFF;
+	padding-top: 1rem;
+	border-bottom: 0.1rem solid #AAAAAA;
+	margin: 0 5px;
+}
+.sky-1{
+	line-height: 5rem;
+}
+.sky-1 p{
+	font-size: 3rem;
+	color: #515151;
+}
+.sky-1 a{
+	font-size: 2rem;
+	color: #c7c7c7;
+	position: relative;
+	top: 1rem;
+}
+.sky{
+	width: 50rem;
+	margin: auto;
+}
+.sky-2{
+	margin-top: 1rem;
+	font-size: 2.6rem;
+	color: #a6a6a6;
+}
+.sky-2 a{
+	margin-bottom: 1rem;
+}
+
+.weap{
+	width: 100%;
+	height: 12.9rem;
+	background: #24afe0;
+	position: fixed;
+	bottom: 0;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+.weap input{
+	width: 27.7rem;
+	height: 8.4rem;
+	margin-top: 2.2rem;
+	font-size: 4rem;
+	color: #FFFFFF;
+	border: none;
+	border-radius: 1rem;
+	outline: none;
+}
+.weap .button{
+	background: #fbb435!important;
+}
+
+.end{
+	margin-bottom: 12.9rem;
+}
+.sky input{
+	width: 2rem;
+	height: 2.8rem;
+	border: none;
+	outline-style: none;
+	background: #FFFFFF;
+	text-align: center;
+}
+
+

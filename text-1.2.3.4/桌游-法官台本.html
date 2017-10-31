@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<meta charset="UTF-8">
+		<title>法官台本</title>
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+		<style type="text/css">
+			body {
+				background: #f0f0f0;
+			}
+			
+			.print {
+				width: 100%;
+				height: 9.5rem;
+				position: fixed;
+				top: 0;
+				z-index: 1;
+				background: #29bde0;
+			}
+			
+			.print img {
+				position: absolute;
+				top: 2.5rem;
+				cursor: pointer
+			}
+			
+			.print-2 {
+				position: absolute;
+				right: 0;
+				margin-right: 1rem;
+			}
+			
+			.print span {
+				display: block;
+				text-align: center;
+				line-height: 9.5rem;
+				font-size: 3rem;
+				color: #FFFFFF;
+			}
+			
+			.end {
+				height: 50rem;
+				margin-top: 13rem;
+				margin-left: 0.8rem;
+				margin-right: 0.8rem;
+				margin-bottom: 25rem;
+				position: relative;
+			}
+			
+			.one {
+				cursor: pointer;
+				height: 5.5rem;
+				border: 0.1rem solid #AAAAAA;
+				line-height: 5.5rem;
+				text-align: center;
+				font-size: 2.2rem;
+				color: #29bde0;
+				margin-top: 1.5rem;
+				background: #FFFFFF;
+			}
+			
+			.end-1 {
+				background: #FFFFFF;
+				border: 0.1rem solid #AAAAAA;
+				padding-top: 5rem;
+				padding-right: 4rem;
+				margin-top: -0.8rem;
+			}
+			
+			.void {
+				width: 0.2rem;
+				height: 15rem;
+				background: #AAAAAA;
+				margin-left: 50%;
+			}
+			
+			.void-1 {
+				width: 0.2rem;
+				height: 9rem;
+				background: #AAAAAA;
+				margin-left: 50%;
+			}
+			
+			.end-2 {
+				float: left;
+				margin-top: 1rem;
+			}
+			
+			.but {
+				width: 100%;
+				padding-left: 2rem;
+			}
+			
+			.but li {
+				width: 95%;
+				margin-left: 3rem;
+				line-height: 5.2rem;
+				font-size: 2.5rem;
+				color: #FFFFFF;
+				background: #29bde0;
+				text-align: center;
+				margin-bottom: 2rem;
+				list-style: none;
+				margin-bottom: 5rem;
+				cursor: pointer;
+			}
+			
+			.weap {
+				width: 100%;
+				height: 12.8rem;
+				background: #29bde0;
+				position: fixed;
+				bottom: 0;
+				padding-left: 2rem;
+				padding-right: 2rem;
+				text-align: center;
+				word-spacing: 15rem;
+			}
+			
+			.weap input {
+				width: 27.7rem;
+				height: 8.4rem;
+				margin-top: 2.2rem;
+				font-size: 4rem;
+				color: #FFFFFF;
+				border: none;
+				border-radius: 1rem;
+				outline: none;
+			}
+			
+			.weap .button {
+				background: #fbb435;
+			}
+			
+			.triangle {
+				width: 1.5rem;
+				border-right: 20px solid transparent;
+				border-bottom: 30px solid #FFFFFF;
+				border-left: 20px solid transparent;
+				margin: auto;
+				position: relative;
+				top: -0.8rem;
+			}
+			
+			.triangle_three {
+				width: 1.5rem;
+				border-top: 15px solid transparent;
+				border-bottom: 15px solid transparent;
+				border-right: 15px solid #29bde0;
+				margin-bottom: 7rem;
+				position: relative;
+				top: 1.2rem;
+				left: 3.6rem;
+			}
+			
+			.info {
+				margin-left: 3rem;
+				margin-top: 2rem;
+				font-size: 1.4rem;
+				display: none;
+			}
+			
+			.dieInfo {
+				color: #000000;
+				background: red;
+				font-size: 2rem;
+				height: 0;
+				text-align: -webkit-left;
+			}
+			
+			.three {
+				width: 1.5rem;
+				border-top: 15px solid transparent;
+				border-bottom: 15px solid transparent;
+				border-right: 15px solid #83b09a;
+				position: relative;
+				top: 4rem;
+				left: 1.6rem;
+			}
+			
+			#button_ipt {
+				background: #fbb435;
+			}
+			
+			.three {
+				width: 1.5rem;
+				border-top: 15px solid transparent;
+				border-bottom: 15px solid transparent;
+				border-right: 15px solid #83b09a;
+				margin-bottom: 7.1rem;
+				position: relative;
+				top: 1.2rem;
+				left: 3.6rem;
+			}
+			
+			.li_col {
+				background: #83b09a!important;
+			}
+			
+			#catalog {
+				margin-bottom: 20rem;
+			}
+			
+			.index_col {
+				background: red;
+			}
+			.cutout_sheet{
+				margin-top: 20rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container-fluid" style="padding: 0;background: #f0f0f0;margin-bottom: 20rem;">
+			<div class="print">
+				<a href="桌面-法官日记.html"><img src="../img/headerbar-back.png" class="print-1" /></a>
+				<img src="../img/headerbar-close.png" class="print-2" id="tion" />
+				<span>法官台本</span>
+			</div>
+
+			<div class="end">
+				<div id="catalog">
+					<div class="one" id="one_day">
+						第<span class="dayIndex">1</span>天
+					</div>
+					<div class="same" id="list">
+						<div class="triangle"></div>
+						<div class="end-1">
+							<span class="pull-left">
+									<div class="triangle_three"></div>
+									<div class="triangle_three"></div>
+									<div class="triangle_three"></div>
+									<div class="triangle_three"></div>
+								</span>
+							<ul class="but" id="info">
+								<li>杀手杀人
+									<div class="dieInfo"></div>
+								</li>
+								<li>亡灵发表留言</li>
+								<li>玩家依次发言</li>
+								<li>全民投票
+									<div class="dieInfo"></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="weap">
+				<div class="base">
+					<a href="桌游-结束游戏-2.html"><input type="button" value="结束游戏" class="button" /></a>
+					<input type="button" value="法官日记" id="button_ipt" />
+				</div>
+			</div>
+		</div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			//li的点击状态
+			var stateInit = {
+				step: {
+					'1': true,
+					'2': false,
+					'3': false,
+					'4': false,
+				},
+				isClick: {
+					'1': false,
+					'2': false,
+					'3': false,
+					'4': false,
+				},
+				whichStep: 0,
+				day: 1
+			}
+
+			var stateLocal = localStorage.getItem('state');
+
+			if(stateLocal) {
+				stateLocal = JSON.parse(stateLocal);
+			}
+			var state = stateLocal ? stateLocal : stateInit;
+			console.log(state)
+
+			function render() {
+				var arrNode = [];
+				var catalog = document.getElementById('catalog');
+				for(var i = 0; i < state.day; i++) {
+					arrNode.push('<div class="one" id="one_day">' +
+						'第<span class="dayIndex">' + (i + 1) + '</span>天' +
+						'</div>' +
+						'<div class="same" id="list">' +
+						'<div class="triangle"></div>' +
+						'<div class="end-1">' +
+						'<span class="pull-left">' +
+						'<div class="triangle_three"></div>' +
+						'<div class="triangle_three"></div>' +
+						'<div class="triangle_three"></div>' +
+						'<div class="triangle_three"></div>' +
+						'</span>' +
+						'<ul class="but" id="info">' +
+						'<li id="homicide">杀手杀人' +
+						'<div class="dieInfo"></div>' +
+						'</li>' +
+						'<li id="ghost">亡灵发表留言</li>' +
+						'<li id="speak">玩家依次发言</li>' +
+						'<li id="poll">全民投票' +
+						'<div class="dieInfo"></div>' +
+						'</li>' +
+						'</ul>' +
+						'</div>' +
+						'</div>');
+				}
+				catalog.innerHTML = arrNode.join('');
+			}
+			render();
+			var oli = document.querySelectorAll('.but li');
+			var one = document.querySelectorAll('.one');
+			var triangle_three = document.querySelectorAll('.triangle_three');
+			var dayIndex=document.querySelectorAll('.dayIndex');
+			for(var i = 0; i < oli.length; i++) {
+				oli[i].setAttribute('index', i);
+				~ function(i) {
+					oli[i].onclick = function() {
+						var index = parseInt(this.getAttribute('index')) + 1;
+						var stepGo = state.step[index];
+						var canClick = state.isClick[index];
+						var whichDay =(dayIndex[dayIndex.length-1].innerHTML).replace(/[^0-9]/ig,"");
+						if(!canClick) {
+							if(stepGo) {
+								//存储第几步
+								state.whichStep = index;
+								//第四步的时候生成第二天的数据
+								if(state.whichStep % 4 == 0) {
+									console.log('一天結束了');
+									state.day++;
+								}
+								//下一个置为true
+								state.step[(index + 1)] = true;
+								//点击当前的置为true
+								state.isClick[index] = true;
+								//存储点击状态
+								localStorage.setItem('state', JSON.stringify(state));
+								//跳转
+								if(index % 4 == 1) {
+									location.href = "杀手杀人.html?page=1&day="+whichDay;
+								}
+								if(index % 4 == 0) {
+									location.href = "杀手杀人.html?page=0&day="+whichDay;
+								}
+								//第二个和第三个li
+								if(index % 4 == 2 || index % 4 == 3) {
+									var res = confirm('请亮明死者身份');
+									if(res) {
+										this.className = "li_col";
+										triangle_three[i].className = "three";
+
+									} else {
+										state.step[(index + 1)] = false;
+										state.isClick[index] = false;
+									}
+								}
+							} else {
+								alert('请按顺序操作');
+							}
+						} else {
+							alert('请不要重复操作');
+						}
+
+					}
+				}(i)
+				for(var j = 0; j < state.whichStep; j++) {
+					oli[j].className = 'li_col';
+					triangle_three[j].className = "three";
+				}
+			}
+			//隐藏步骤，当前天显示，点击切换
+			for(var i = 0; i < state.day - 1; i++) {
+				one[i].nextElementSibling.style.display = 'none';
+			}
+			for(var j = 0; j < state.day; j++) {
+				one[j].onclick = function() {
+					if(this.nextElementSibling.style.display == 'none') {
+						this.nextElementSibling.style.display = 'block';
+					} else if(this.nextElementSibling.style.display == 'block') {
+						this.nextElementSibling.style.display = 'none';
+					}
+				}
+			}
+
+			//返回游戏首页
+			var tion = document.getElementById('tion');
+			tion.onclick = function() {
+				if(window.confirm('你确定要取消游戏吗？')) {
+					localStorage.clear();
+					window.location.href = "桌游首页.html";
+				}
+			}
+			var button_ipt = document.getElementById('button_ipt');
+			console.log(button_ipt)
+			button_ipt.onclick = function() {
+				location.href = '杀手杀人.html?change=2';
+			}
+			//记录死亡玩家状态
+			function recordRoleState(){
+				var dieInfo =document.querySelectorAll('.dieInfo');
+				var rolesObj= JSON.parse(localStorage.getItem('rolesObj'));
+				if(rolesObj){
+					for(var i=0;i<rolesObj.length;i++){
+						if(rolesObj[i].dieInfo.reason==1){
+							dieInfo[i].innerHTML=rolesObj[i].dieInfo.number+"号被杀手杀死，真实身份是"+rolesObj[i].dieInfo.role;
+						}
+						if(rolesObj[i].dieInfo.reason==0){
+							dieInfo[i].innerHTML=rolesObj[i].dieInfo.number+"号被杀手杀死，真实身份是"+rolesObj[i].dieInfo.role;
+						}
+					}
+				}
+				console.log(rolesObj);
+			}
+			recordRoleState();
+		</script>
+	</body>
+
+</html>

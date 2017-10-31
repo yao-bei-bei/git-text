@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>桌面精灵</title>
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+		<link rel="stylesheet" type="text/css" href="../css/tabletop-2.css" />
+	</head>
+
+	<body>
+		<div class="container-fluid" style=" padding: 0;">
+			<div class="wear">
+				<div class="wear_img">
+				<img src="../img/headerbar-home.png" class="pull-left" onclick="but()"/>
+				<img src="../img/headerbar-doubt.png"class="pull-right"/>
+				<span>游戏结束</span>
+				
+				
+			</div>
+			</div>
+			<div class="wear-3">
+			<div class="print">
+				<img src="../img/gameOver.png" />
+				</div>
+				<div class="print-3">
+				<p class="time-1"><span class="col">剩余玩家:</span>杀手<span id="killer">人</span>平民<span id="people">人</span></p>
+				</div>
+				<div class="print_arr">
+					<div class="sky">
+						<div class="sky-1">
+						<p>第天</p>
+						</div>
+						<div class="sky-2">
+						<p>晚上：号被杀死了，真实身份是</p>
+						<p>白天：号被投死了，真实身份是</p>
+					    </div>
+					</div>
+				</div>
+			<div class="weap">
+				<div class="base">
+					<input type="button" value="再来一局" class="button" onclick="but()" />
+				</div>
+			</div>
+			
+		</div>
+		</div>
+		<script type="text/javascript">
+			var rolesObj =JSON.parse(localStorage.getItem('rolesObj'));
+			var res = JSON.parse(localStorage.getItem('res'));
+			function render(){
+				document.getElementById('killer').innerHTML=res.kill+'人';
+				document.getElementById('people').innerHTML=res.people+'人';
+				var arr =[];
+				var print_arr =document.querySelector('.print_arr');
+				var rolesNight=[];
+				var rolesDay =[];
+				for (var j=0;j<rolesObj.length;j++) {
+					if(j%2==0){
+						rolesNight.push(rolesObj[j])
+					}else{
+						rolesDay.push(rolesObj[j])
+					}
+					
+				}
+				for (var i=0; i<rolesNight.length;i++) {
+					arr.push(
+						'<div class="sky">'+
+						'<div class="sky-1">'+
+						'<p>第'+(i+1)+'天</p>'+
+						'</div>'+
+						'<div class="sky-2">'+
+						'<p>晚上:'+rolesNight[i].dieInfo.number+'号被杀死了，真实身份是'+rolesNight[i].dieInfo.role+'</p>'+
+						'<p>白天:'+rolesDay[i].dieInfo.number+'号被杀死了，真实身份是'+rolesDay[i].dieInfo.role+'</p>'+
+					    '</div>'+
+					'</div>'
+					)
+				}
+				print_arr.innerHTML=arr.join('');
+			}
+			render();
+			function but(){
+				localStorage.clear();
+				location.href='桌游首页.html';
+			}
+		</script>
+	</body>
+
+</html>

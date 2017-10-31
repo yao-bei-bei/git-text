@@ -1,0 +1,118 @@
+<div class="col-md-9 column">
+	<form class="form-horizontal" role="form" style="padding-bottom: 25rem;">
+		<div class="coping">
+			<div class="nosecone">
+				<strong>新增Article</strong>
+			</div>
+			<div class="content">
+				
+				<strong>标题名称</strong>
+				<input type="text" class="form-control"><br />
+				<strong><span>类</span>型</strong>
+				<select id="disabledSelect" class="form-control long">
+					<option>请选择</option>
+					<option>首页Banner</option>
+					<option>找职位Banner</option>
+					<option>找精英Banner</option>
+					<option>行业大图</option>
+				</select>
+				<strong>标题名称</strong>
+				<input type="text" class="form-control"><br />
+				<strong>跳转链接</strong>
+				<input type="text" class="form-control"><br />
+				<strong>配图</strong>
+				<label style="display: inline-block; color: #000000; border: 0.1rem solid #0000FF; width: 10rem; line-height: 3.2rem; text-align: center;background: #00F7DE; border-radius: 0.5rem;">
+					选择文件
+				<input type="file" name="" id="myFile" value="" style="display: none;"/>
+				</label>
+            <div id="showFile" class="show" style="padding-left: 10rem;" >
+            	
+            </div>
+				<div class="word">配图浏览</div>
+				<ul class="designation">
+					<li>图片名</li>
+					<li>文件大小</li>
+					<li>进度</li>
+					<li>操作</li>
+					<li>操作</li>
+				</ul>
+				<button class="bon left-but" id="upLoadBtn">立即上线</button>
+				<button class="bon">存为草稿</button>
+				<a ui-sref="success.article"><button class="bon right-but">取消</button></a>
+			</div>
+		</div>
+	</form>
+</div>
+<script>
+	var fileUpload = {
+			//dom元素
+			dom: {
+				chooseFile: document.getElementById('myFile'),
+				showFile: document.getElementById('showFile'),
+				upLoadBtn: document.getElementById('upLoadBtn')
+			},
+			//选择的图片文件
+			files: undefined
+		}
+		//选择文件之后 onchange
+		fileUpload.dom.chooseFile.onchange = function() {
+			fileUpload.files = this.files[0];
+			readFile(fileUpload.files);
+		}
+		//上传按钮点击
+		fileUpload.dom.upLoadBtn.onclick = function() {
+			var data = new FormData();
+			if(!fileUpload.files) {
+				return;
+			};
+			data.append('file', fileUpload.files);
+			var promise = ajax({
+				method: 'post',
+				url: '/carrots-admin-ajax/a/u/img/task',
+				data: data
+			});
+			promise.then(function(res) {
+				if(res.code === 0 && res.message == 'success') {
+					console.log(res.data);
+				} else {
+					console.log(res.message);
+				}
+			}, function(e) {
+				alert(e);
+			})
+		}
+		//FileReader本地预览文件
+		var readFile = function(file) {
+			var instance = new FileReader();
+			instance.readAsDataURL(file);
+			instance.onload = function() {
+				var resUrl = this.result;
+				fileUpload.dom.showFile.appendChild(createElement('img', { 'src': resUrl }));
+			}
+		}
+		//创建dom元素
+		var createElement = function(tagName, property) {
+			//property为obj
+			var Node = document.createElement(tagName);
+			for(var i in property) {
+				Node.setAttribute(i, property[i]);
+			}
+			return Node;
+		};
+		//封装ajax
+		var ajax = function(config) {
+			var xhr = new XMLHttpRequest();
+			xhr.open(config.method, config.url, config.async || true);
+			return new Promise(function(resolve, reject) {
+				xhr.onreadystatechange = function() {
+					if(xhr.status === 200 && xhr.readyState === 4) {
+						resolve(JSON.parse(xhr.responseText));
+					}
+				}
+				xhr.onerror = function(e) {
+					reject(e);
+				}
+				xhr.send(config.data || '');
+			})
+		}
+</script>

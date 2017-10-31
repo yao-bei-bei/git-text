@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>桌面精灵</title>
+		<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+		<link rel="stylesheet" type="text/css" href="../css/tabletop.css" />
+	</head>
+
+	<body>
+		<div class="container-fluid public" style=" min-width: 56.8rem;">
+			<div class="batten">
+			</div>
+			<div class="contents">
+				<div id="myCarousel" class="carousel slide">
+					<div class="item active">
+						<div class="rubric">
+							<p>上次游戏：捉鬼猜词版 <img src="../img/titlebar-right.png" /></p>
+						</div>
+						<div class="rubric-1">
+							<div class="caption">
+								<p id="ent">捉鬼游戏</p>
+							</div>
+							<div class="caption-1 caption-2">
+								<div class="smf">
+									<input type="button" name="" value="简化版" onclick="but()" id="bnt" />
+								</div>
+								<div class="suggest">
+									有1113个用户正在玩此游戏
+								</div>
+							</div>
+							<div class="caption-1">
+								<div class="smf">
+									<input type="button" name="" value="猜词版" onclick="but()" id="bnt_1" />
+								</div>
+								<div class="suggest">
+									有1113个用户正在玩此游戏
+								</div>
+							</div>
+							<div class="caption-1">
+								<div class="smf">
+									<input type="button" name="" value="杀人版" onclick="but()" id="bnt_2" />
+								</div>
+								<div class="circle-1">
+									<div class="cit">
+										<p>有1113个用户正在玩此游戏</p>
+									</div>
+								</div>
+								<div class="circle">
+									<p>
+										<span id="num1">1</span>
+										<span id="num2">2</span>
+									</p>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<span class="glyphicon glyphicon-triangle-left good-1 good " onclick="btn()"></span>
+					<span class="glyphicon glyphicon-triangle-right good-1 good-a" onclick="btn()"></span>
+					
+				</div>
+
+			</div>
+		</div>
+		<script type="text/javascript">
+			var bnt = document.getElementById('bnt');
+			var bnt_1 = document.getElementById('bnt_1');
+			var bnt_2 = document.getElementById('bnt_2');
+			var ent = document.getElementById('ent');
+			var to = document.getElementById('to');
+			var too = document.getElementById('too');
+			var num1 = document.getElementById('num1');
+			var num2 = document.getElementById('num2');
+			function but() {
+				window.location.href = "桌游匹配.html";
+			}
+			var flag = true;
+			
+			function btn(){
+				flag = !flag;
+				if(flag) {
+					ent.innerHTML = "捉鬼游戏";
+					bnt_1.value = "猜词版";
+					bnt_2.value = "杀人版"
+					num1.style.background="#FBB435";
+					num2.style.background="#FFFFFF";
+					
+				} else {
+					ent.innerHTML = "杀人游戏";
+					bnt_1.value = "警版";
+					bnt_2.value = "3.0版";
+					num2.style.background="#FBB435";
+					num1.style.background="#FFFFFF";
+					
+				}
+			}
+		</script>
+	</body>
+
+</html>

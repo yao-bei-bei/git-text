@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>发牌</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<style type="text/css">
+			body {
+				background: #29bde0;
+				min-width: 54rem;
+			}
+			
+			.wear {
+				height: 9.5rem;
+				border-bottom: 0.1rem solid #FFFFFF;
+			}
+			
+			.wear img {
+				position: absolute;
+				top: 4rem;
+			}
+			
+			.wear span {
+				display: block;
+				font-size: 3rem;
+				color: #FFFFFF;
+				text-align: center;
+				line-height: 9.5rem;
+			}
+			
+			.print {
+				width: 50%;
+				margin: auto;
+				text-align: center;
+			}
+			
+			.print img {
+				max-width: 100%;
+			}
+			
+			.wear-1 {
+				width: 50%;
+				margin: auto;
+				padding-top: 20%;
+				padding-bottom: 10%;
+			}
+			
+			.wear-a img {
+				margin-bottom: 2rem;
+				min-width: 100%;
+			}
+			
+			.wear-3 {
+				width: 8rem;
+				height: 8rem;
+				line-height: 8rem;
+				background: #FFFFFF;
+				border-radius: 50%;
+				text-align: center;
+				margin-left: auto;
+				margin-right: auto;
+				position: relative;
+				top: 4rem;
+				border: 0.2rem solid lightgoldenrodyellow;
+			}
+			
+			.ipt-a {
+				width: 7rem;
+				line-height: 7rem;
+				text-align: center;
+				border: none;
+				border-radius: 50%;
+				outline-style: none;
+				color: red;
+				font-size: 2.5rem;
+			}
+			
+			.end {
+				padding-left: 8rem;
+				padding-right: 8rem;
+				margin-top: 3rem;
+			}
+			
+			.end input {
+				width: 100%;
+				height: 8rem;
+				background: orange;
+				margin-bottom: 5rem;
+				border: none;
+				font-size: 1.8rem;
+				color: #FFFFFF;
+			}
+			
+			.wear .ent {
+				position: absolute;
+				right: 0;
+				margin-right: 1rem;
+			}
+			
+			.wear-a {
+				text-align: center;
+			}
+			
+			.bese {
+				margin: auto;
+				padding-top: 4%;
+				padding-bottom: 2rem;
+				color: orange;
+				background: lightgoldenrodyellow;
+				border-top: 0.2rem solid #FFFFFF;
+				text-align: center;
+			}
+			
+			.bese span {
+				margin-left: -10rem;
+			}
+			
+			.wear-a span {
+				color: #29BDE0;
+				font-size: 1.5rem;
+			}
+			
+			.wear-a b {
+				font-size: 1.5rem;
+				color: orangered;
+			}
+			
+			#too {
+				display: none;
+			}
+			
+			#tion {
+				cursor: pointer
+			}
+			
+			.tap {
+				width: 50%;
+				line-height: 80rem;
+				border: 0.5rem solid #FFFFFF;
+				background: lightgoldenrodyellow;
+				margin: auto;
+			}
+			
+			.bat {
+				width: 50%;
+				height: 80rem;
+				border: 0.5rem solid #FFFFFF;
+				background: lightgoldenrodyellow;
+				margin: auto;
+			}
+			
+			@media (max-width: 768px) {
+				.tap {
+					line-height: 40rem;
+				}
+				.bat {
+					height: 40rem;
+				}
+				.wear-1 {
+					padding-top: 10%;
+					padding-bottom: 0;
+				}
+				.wear-a {
+					margin-bottom: 1rem;
+				}
+				.best {
+					margin-bottom: 1rem;
+					padding-top: 2%;
+					padding-bottom: 1rem;
+				}
+				.wear-a img {
+					margin-bottom: 0.1rem;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container-fluid" style="padding: 0;">
+
+			<!--头部-->
+			<div class="wear">
+
+				<a href="桌游匹配.html"><img src="../img/back.png" /></a>
+
+				<img src="../img/headerbar-close.png" class="ent" id="tion" />
+				<span> 查看身份</span>
+			</div>
+
+			<div id="one">
+				<div class="wear-3">
+					<input type="text" value="1" id="ipt" class="ipt-a" />
+				</div>
+				<div class="tap">
+
+					<div class="print img-responsive">
+						<img src="../img/fanpai-3.png" />
+					</div>
+				</div>
+			</div>
+			<div id="too">
+				<div class="wear-3">
+					<input type="text" value="1" id="ipt_1" class="ipt-a" />
+				</div>
+				<div class="bat">
+					<div class="wear-1">
+						<div class="wear-a img-responsive">
+							<img src="../img/spirit-card-front.png" class="img-responsive" /><br />
+							<span id="role"></span><br />
+							<b id="phrase">词 组：</b>
+						</div>
+					</div>
+					<div class="bese">
+						<p>想办法猜到人的词，同时还要注意</p>
+						<span>不要暴露自己哦！</span>
+					</div>
+				</div>
+			</div>
+			<div class="end">
+				<input type="button" value="查看1号身份" id="but" />
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var tion = document.getElementById('tion');
+			tion.onclick = function() {
+				if(window.confirm('你确定要取消游戏吗？')) {
+					localStorage.clear();
+					window.location.href = "桌游首页.html";
+				}
+			}
+			var i = 1;
+			var flag = true;
+			var but = document.getElementById('but');
+			var ipt = document.getElementById('ipt');
+			var ipt_1 = document.getElementById('ipt_1');
+			var one = document.getElementById('one');
+			var too = document.getElementById('too');
+			var role = document.getElementById('role');
+			var phrase = document.getElementById('phrase');
+
+			if(!window.localStorage) {
+				alert("支持");
+			} else {
+				var roles = localStorage.getItem("roles").split(',');
+				var folk = localStorage.getItem('folk');
+				var killer = localStorage.getItem('killer');
+
+			}
+
+			var goFlag = false;
+			but.onclick = function() {
+				if(goFlag) {
+					window.location.href = "桌面-法官日记.html";
+					return true;
+				} else {
+					ipt.value = i;
+					ipt_1.value = i;
+					switchRole();
+
+				}
+
+				function switchRole() {
+					if(flag) {
+						but.value = "隐藏并传递给" + (i + 1) + "号";
+						role.innerHTML = "角色：" + roles[i - 1];
+						if(roles[i - 1] == '杀手') {
+							phrase.innerHTML = "词组：" + killer;
+						} else if(roles[i - 1] == '水民') {
+							phrase.innerHTML = "词组：" + folk;
+						} else {
+							console.log('error')
+						}
+						i++;
+					} else {
+						but.value = "查看" + i + "号身份";
+					}
+					console.log(i);
+					if(i == roles.length + 1) {
+						but.value = "法官日记";
+						goFlag = true;
+						console.log(i);
+
+					}
+				}
+
+				flag = !flag;
+
+				if(flag) {
+					too.style = "display: none";
+					one.style = "display: block";
+				} else {
+					too.style = "display:block";
+					one.style = "display:none";
+				}
+			}
+		</script>
+	</body>
+
+</html>

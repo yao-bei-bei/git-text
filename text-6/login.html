@@ -1,0 +1,45 @@
+<form name="myForm" novalidate>
+	<div class="overall">
+		<p>后 台 登 录</p>
+		<div class="box">
+			<input type="text" placeholder="用户名" name="name" ng-pattern="/^[0-9a-zA-Z]+$/" ng-model="name" ng-minlength=5 ng-maxlength=10 required />
+			<div class="glyphicon glyphicon-user good">
+			</div>
+			<input type="password" placeholder="密码" name="pwd" ng-pattern="/^[0-9a-zA-Z]+$/" ng-model="pwd" ng-minlength=6 ng-maxlength=12 required />
+			<div class="glyphicon glyphicon-lock good">
+			</div>
+		</div>
+		<div class="prompt" id="point">
+			<span ng-show="myForm.name.$error.minlength">用户名长度至少为5。</span>
+			<span ng-show="myForm.name.$error.maxlength">用户名长度至多为10。</span>
+			<span ng-show="myForm.name.$error.pattern">用户名只允许输入数字和英文。</span>
+			<span ng-show="{{code != 0}}">{{message}}</span>
+			<span ng-show="myForm.pwd.$error.minlength">密码长度至少为6。</span>
+			<span ng-show="myForm.pwd.$error.maxlength">密码长度至多为10。</span>
+			<span ng-show="myForm.pwd.$error.pattern">密码只允许输入数字和英文。</span>
+
+		</div>
+		<button type="button" id="btn" ng-click="goPath()">登录</button>
+	</div>
+</form>
+<script type="text/javascript">
+var userName = document.getElementsByTagName('input')[0];
+var userPwd = document.getElementsByTagName('input')[1];
+var info = document.getElementById('point');
+var btn = document.getElementById('btn');
+//失去焦点
+userName.onfocus = function() {
+userName.className = "text_gain";
+};
+//失去焦点
+userName.onblur = function() {
+userName.className = "text_lose";
+}
+//获取焦点
+userPwd.onfocus = function() {
+userPwd.className = "gain";
+}
+userPwd.onblur = function() {
+userPwd.className = "lose";
+}
+</script>

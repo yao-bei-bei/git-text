@@ -1,0 +1,115 @@
+.public {
+	padding: 0;
+}
+
+.wear {
+	height: 9.5rem;
+	border-bottom: 0.1rem solid #FFFFFF;
+	background: #29BDE0;
+}
+
+.wear .ent {
+	position: absolute;
+	right: 0;
+	margin-right: 1rem;
+}
+
+#tion {
+	cursor: pointer
+}
+
+.wear img {
+	position: absolute;
+	top: 2.5rem;
+}
+
+.wear span {
+	display: block;
+	font-size: 3rem;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 9.5rem;
+}
+
+.wear-2 {
+	font-size: 6rem;
+	color: #FFFFFF;
+	margin-top: -8rem;
+	margin-right: 2.4rem;
+}
+
+.vote {
+	padding-top: 4rem;
+	padding-left: 4rem;
+	padding-right: 4rem;
+	padding-bottom: 47rem;
+	background: #29BDE0;
+}
+
+.first {
+	width: 12.9rem;
+	height: 12.9rem;
+	border: 0.5rem solid #FFFFFF;
+}
+
+.first p {
+	height: 9.4rem;
+	margin-bottom: 0;
+	background: #f5c97b;
+	text-align: center;
+	line-height: 9.3rem;
+	font-size: 3rem;
+	color: #565656;
+}
+
+.first span {
+	display: block;
+	width: 12.rem;
+	height: 2.5rem;
+	background: #83b09a;
+	text-align: center;
+	line-height: 2.5rem;
+	font-size: 2.27rem;
+	color: #FFFFFF;
+}
+
+.vote-2 {
+	width: 33%;
+	margin-top: 8rem;
+}
+
+.vote-3 {
+	margin: auto;
+}
+
+.print {
+	height: 7.2rem;
+}
+
+.weap {
+	height: 12.8rem;
+}
+
+.weap-1 {
+	margin-bottom: 7.5rem;
+}
+
+.weap-2 {
+	width: 100%;
+	height: 17rem;
+	background: #29bde0;
+	padding-left: 7.7rem;
+	padding-right: 7.1rem;
+}
+
+.weap-2 input {
+	width: 100%;
+	height: 9rem;
+	margin-top: 4rem;
+	border: none;
+	background: #fbb435;
+	font-size: 4rem;
+	color: #FFFFFF;
+	letter-spacing: 1rem;
+	border-radius: 1rem;
+}

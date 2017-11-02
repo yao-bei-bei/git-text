@@ -1,0 +1,63 @@
+.Oul>li{
+    list-style:none;
+    width:300px;
+    height:40px;
+    border:1px solid #4CAF50;
+    margin-bottom:4px;
+    padding-left:5px;
+    background: red;
+}
+.nextLink,.prevLink{
+    font-size: 12px;
+    line-height: 24px;
+    height: 24px;
+    border: solid 1px #aaa;
+    color: #999;
+    padding: 0 9px;
+    margin: 0 0 0 5px;
+    list-style: none;
+    background: #f2f2f2;
+    float: left;
+    cursor: pointer;
+}
+
+a.prevLink:hover,a.nextLink:hover {
+    background: #aaa !important;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+.step {
+    display: block;
+    line-height: 24px;
+    height: 24px;
+    border: solid 1px #aaa;
+    color: #000000  ;
+    background: #fff;
+    padding: 0 9px;
+    font-size: 12px;
+    float: left;
+    margin: 0 0 0 5px;
+    list-style: none;
+    cursor: pointer;
+    border: 0.1rem solid #0ab568;
+    background: yellow;
+}
+.currentStep{
+    border-color: #fff;
+    padding: 0 4px;
+    color: #f90;
+    font-weight: bold;
+    float: left;
+    display: block;
+    line-height: 24px;
+    height: 24px;
+    padding: 0 9px;
+    font-size: 12px;
+    float: left;
+    margin: 0 0 0 5px;
+    list-style: none;
+    cursor: pointer;
+    border: 0.1rem solid #0ab568;
+
+}

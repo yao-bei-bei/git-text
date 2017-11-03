@@ -19,18 +19,18 @@ app.controller('siteCtrl', function ($scope, $http, $state,$filter) {
         for (var i = 1; i <= $scope.pagina; i++) {
             $scope.pageNum.push(i);
         };
-        $scope.currentPage = 1;
+
+        $scope.currentPage =1;
+        console.log( $scope.pageNum)
         //设置当前页是 0
-
-
         $scope.pickerParams= {
-            startAt:"",
-            endAt:''
-        }
+            startAt :"",
+            updateAt:'',
+        };
             $scope.params={
                 page:$scope.currentPage,
-                startAt:'',
-                endAt:'',
+                startAt :'',
+                endAt :'',
                 type:'',
                 status:''
             };
@@ -41,10 +41,10 @@ app.controller('siteCtrl', function ($scope, $http, $state,$filter) {
                 url: '/carrots-admin-ajax/a/article/search',
                 params:$scope.params,
             });
+
             promise.then(function (response) {
                 if (response.data.code == 0) {
                     $scope.demoLists = response.data.data.articleList;//表格
-                    $state.go($state.current, {reload: true});
                 }
             }, function () {
                 alert('错误')
@@ -52,8 +52,7 @@ app.controller('siteCtrl', function ($scope, $http, $state,$filter) {
         };
         $scope.res();
         $scope.setPage = function (nam) {             // 当点击页码数字时执行的函数
-            $scope.currentPage = nam;
-            console.log($scope.currentPage);
+            $scope.params.page = nam;
             if (nam <= $scope.pagina) {
                 $scope.demoLists = response.data.data.articleList;//表格
             } else {
@@ -63,23 +62,24 @@ app.controller('siteCtrl', function ($scope, $http, $state,$filter) {
             $scope.res();
         };
         $scope.prevPage = function () {               //点击上一页执行的函数
-            if ($scope.currentPage > 0) {
-                $scope.currentPage--;
-                $scope.num = $scope.currentPage;
+            if ($scope.params.page > 0) {
+                $scope.params.page--;
+                $scope.num = $scope.params.page;
                 $scope.res();
             }
         };
         $scope.nextPage = function () {              //点击下一页执行的函数
-            if ($scope.currentPage < $scope.pagina) {
-                $scope.currentPage++;
-                $scope.num = $scope.currentPage;
-                $scope.res($scope.params);
+            if ($scope.params.page < $scope.pagina) {
+                $scope.params.page++;
+                $scope.num = $scope.params.page;
+                $scope.res();
             }
         }
         //搜索
         $scope.search =function () {
-            $scope.params.startAt=$scope.pickerParams.startAt&& Date.parse($scope.pickerParams.startAt);
-            $scope.params.endAt=$scope.pickerParams.endAt&&Date.parse($scope.pickerParams.endAt);
+            $scope.params.startAt=$scope.pickerParams.startAt && Date.parse($scope.pickerParams.startAt );
+            $scope.params.endAt =$scope.pickerParams.endAt &&Date.parse($scope.pickerParams.endAt );
+
             $scope.res();
         }
         $scope.searching=function () {

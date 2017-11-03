@@ -32,7 +32,7 @@ app.controller('siteCtrl', function ($scope, $http, $state,$filter) {
                 for (var i = 1; i <=$scope.pagina; i++) {
                     $scope.pageNum.push(i);
                 };
-
+                $scope.params.page=$scope.pagination.page;
             }
         }
         , function () {
@@ -45,7 +45,6 @@ app.controller('siteCtrl', function ($scope, $http, $state,$filter) {
         $scope.params.page = num;
         console.log(num)
         $scope.res();
-
         if (num <= $scope.pagina && num!=0) {
             $scope.pagination.page=$scope.params.page;
             $scope.res();
@@ -54,8 +53,8 @@ app.controller('siteCtrl', function ($scope, $http, $state,$filter) {
         };
         // alert(num)//将当前页 设置为 页码数
     };
-    $scope.prevPage = function (num) {               //点击上一页执行的函数
-        if ($scope.page >=1) {
+    $scope.prevPage = function () {               //点击上一页执行的函数
+        if ($scope.params.page >=1) {
             $scope.params.page--;
             $scope.num= $scope.params.page;
             $scope.res();
@@ -63,7 +62,7 @@ app.controller('siteCtrl', function ($scope, $http, $state,$filter) {
             return;
         }
     };
-    $scope.nextPage = function (num) {              //点击下一页执行的函数
+    $scope.nextPage = function () {              //点击下一页执行的函数
         if ($scope.params.page < $scope.pagina) {
             $scope.params.page++;
             $scope.num = $scope.params.page;

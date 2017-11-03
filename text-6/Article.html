@@ -91,14 +91,21 @@
             </table>
             <div style="float: right">
                 <a class="step" style="background: #FFFFFF;border: none;">每页显示
-                    <input type="text" ng-model="params.size" ="" value=""style="width:30px;text-align: center;height: 24px;"/>条
-                    <a class="step prevLink" ng-click="prevPage(nam)">上一页</a>
+                    <input type="text" ng-model="params.size" style="width:30px;text-align: center;height: 24px;"/>条
+                    <a class="step prevLink" ng-click="prevPage()">上一页</a>
+
                     <a ng-class="{true:'currentStep',false:'step'}[$index+1==params.page]" ng-repeat="num in pageNum"
                        ng-click="setPage($index+1)">{{$index+1}}</a>  <!-- ng-repeat 动态生成页码 -->
-                    <a class="step nextLink" ng-click="nextPage(nam)">下一页</a>
+
+
+
+                    <a class="step nextLink" ng-click="nextPage()">下一页</a>
+
+
+
                     <span class="step" style="background: #FFFFFF;border: none;">跳转到
                     <input type="text" ng-model="params.page" style="width: 30px; text-align: center;height: 24px;"
-                           value="{{params.page}}"/>页<button ng-click="setPage(num)">确定</button>
+                           value="{{params.page}}"/>页<button ng-click="setPage()">确定</button>
                 </span>
             </div>
 

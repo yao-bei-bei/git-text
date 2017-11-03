@@ -4,22 +4,22 @@
     <form class="form-horizontal" role="form">
         <fieldset class="search">
             <div class="form-group">
-                <label class="col-md-1 control-label"  for="ds_host">修改时间</label>
+                <label class="col-md-1 control-label" for="ds_host">修改时间</label>
                 <div class="col-md-3">
-                    <input  type="text"  ng-model="pickerParams.startAt" class="date-picker form-control" id="datatimeo">
+                    <input type="text" ng-model="pickerParams.startAt" class="date-picker form-control" id="datatimeo">
                 </div>
                 <label class="col-md-1 control-label">更新时间</label>
                 <div class="col-md-3">
-                        <input type="text" class="date-picker form-control"  ng-model="pickerParams.endAt" id="datatimeo">
+                    <input type="text" class="date-picker form-control" ng-model="pickerParams.endAt" id="datatimeo">
                 </div>
                 <label class="col-md-1 control-label">类型</label>
                 <div class="col-md-3">
                     <select id="disabledSelect" ng-model="params.type" class="form-control">
-                        <option >全部</option>
-                        <option value="1">首页Banner</option>
-                        <option value="2">找职位Banner</option>
-                        <option value="3">找精英Banner</option>
-                        <option value="4">行业大图</option>
+                        <option value="">全部</option>
+                        <option value="0">首页Banner</option>
+                        <option value="1">找职位Banner</option>
+                        <option value="2">找精英Banner</option>
+                        <option value="3">行业大图</option>
                     </select>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                 <label class="col-md-1 control-label" for="ds_password"><span class="left-sp">状</span>态</label>
                 <div class="col-md-3">
                     <select id="disabledSelect" ng-model="params.status" class="form-control">
-                        <option>全部</option>
+                        <option value="">全部</option>
                         <option value="1">草搞</option>
                         <option value="2">上线</option>
                     </select>
@@ -91,20 +91,20 @@
             </table>
             <div style="float: right">
                 <a class="step" style="background: #FFFFFF;border: none;">每页显示
-                    <input type="text" style="width: 30px;text-align: center;height: 24px;" value="{{size}}"/>条
-                    <a class="step prevLink" ng-click="prevPage()">上一页</a>
-                    <a ng-class="{true:'currentStep',false:'step'}[num==params.page]" ng-repeat="num in pageNum"
-                       ng-click="setPage(num)">{{num}}</a>  <!-- ng-repeat 动态生成页码 -->
-                    <a class="step nextLink" ng-click="nextPage()">下一页</a>
+                    <input type="text" ng-model="params.size" ="" value=""style="width:30px;text-align: center;height: 24px;"/>条
+                    <a class="step prevLink" ng-click="prevPage(nam)">上一页</a>
+                    <a ng-class="{true:'currentStep',false:'step'}[$index+1==params.page]" ng-repeat="num in pageNum"
+                       ng-click="setPage($index+1)">{{$index+1}}</a>  <!-- ng-repeat 动态生成页码 -->
+                    <a class="step nextLink" ng-click="nextPage(nam)">下一页</a>
                     <span class="step" style="background: #FFFFFF;border: none;">跳转到
-                    <input type="text" ng-model="num"  style="width: 30px; text-align: center;height: 24px;"
-                           value=""/>页<button ng-click="setPage(num)">确定</button>
+                    <input type="text" ng-model="params.page" style="width: 30px; text-align: center;height: 24px;"
+                           value="{{params.page}}"/>页<button ng-click="setPage(num)">确定</button>
                 </span>
             </div>
 
         </fieldset>
 
-</form>
+    </form>
 </div>
 <script type="text/javascript">
     $('.date-picker').datepicker({

@@ -315,4 +315,7 @@
 				.navbar-collapse.in {
 					overflow-y: inherit!important;
 				}
+				.text{
+					width: 100%;
+				}
 			}

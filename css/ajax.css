@@ -1,120 +1,131 @@
-			* {
-				margin: 0;
-				padding: 0;
-			}
-			html {
-				height: 100%;
-			}
-			body {
-				height: 100%;
-				background: url(../img/apic21133.jpg) no-repeat;
-				background-size: cover;
-				height: -webkit-fill-available;
-			}
-			.overall {
-				position: absolute;
-				width: 30%;
-				padding-top: 5rem;
-				padding-bottom: 5rem;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				background: url(../img/apic19500.jpg) no-repeat;
-				background-size: 100% 100%;
-				opacity: 0.8;
-			}
-			
-			.overall p {
-				font-weight: 900;
-				text-align: center;
-				font-size: 2.5rem;
-				margin-bottom: 2rem;
-				color: blue;
-			}
-			.box{
-				height: 12rem;
-			}
-			.box input{
-				padding-left: 7rem;
-				display: block;
-				width: 90%;
-				height: 4rem;
-				margin-left: auto;
-				margin-right: auto;
-				border-radius: 0.5rem;
-				opacity: 0.8;
-				outline-style: none;
-				border: 0.1rem solid red;
-			}
-			/*1*/
-			
-			/*2*/
-			
-			.good {
-				width: 2rem;
-				height: 3.8rem;
-				position: relative!important;
-				top: -3.2rem!important;
-				left: 3rem;
-				font-size: 2.5rem;
-				color:  #D58512;
-				margin-left: 2rem;
-			}
-			
-			.text img {
-				width: 2rem;
-				height: 1.5rem;
-				vertical-align: -15px;
-				vertical-align: middle;
-			}
-			/*失去焦点1*/
-			
-			.text_lose {
-				border: 0.1rem solid red;
-			}
-			/*获取焦点1*/
-			
-			.text_gain {
-				border: 0.15rem solid #337AB7!important;
-			}
-			/*失去焦点2*/
-			
-			.lose {
-				border: 0.1rem solid red;
-			}
-			/*获取焦点2*/
-			
-			.gain {
-				border: 0.15rem solid #337AB7!important;
-			}
-			
-			.prompt {
-				width: 80%;
-				height: 4rem;
-				text-align: center;
-				margin: 0.5rem 0;
-				color: red;
-				line-height: 4rem;
-				margin: auto;
-			}
-			
-			#btn {
-				display: block;
-				width: 90%;
-				height: 4rem;
-				margin-left: auto;
-				margin-right: auto;
-				background: #29BDE0;
-				border: 0;
-				border-radius: 0.5rem;
-				outline-style: none;
-				font-size: 2rem;
-				color: #FFFFFF;
-				margin-bottom: 0.5rem;
-				cursor: pointer;
-			}
-			@media only screen and (max-width:768px ) {
-				.text{
-					width: 60%;
-				}
-			}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background: url(../img/apic21133.jpg) no-repeat;
+    background-size: cover;
+    height: -webkit-fill-available;
+}
+
+.overall {
+    position: absolute;
+    width: 30%;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url(../img/apic19500.jpg) no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.8;
+}
+
+.overall p {
+    font-weight: 900;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: blue;
+}
+
+.box {
+    height: 12rem;
+}
+
+.box input {
+    padding-left: 7rem;
+    display: block;
+    width: 90%;
+    height: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.5rem;
+    opacity: 0.8;
+    outline-style: none;
+    border: 0.1rem solid red;
+}
+
+/*1*/
+
+/*2*/
+
+.good {
+    width: 2rem;
+    height: 3.8rem;
+    position: relative !important;
+    top: -3.2rem !important;
+    left: 3rem;
+    font-size: 2.5rem;
+    color: #D58512;
+    margin-left: 2rem;
+}
+
+.text img {
+    width: 2rem;
+    height: 1.5rem;
+    vertical-align: -15px;
+    vertical-align: middle;
+}
+
+/*失去焦点1*/
+
+.text_lose {
+    border: 0.1rem solid red;
+}
+
+/*获取焦点1*/
+
+.text_gain {
+    border: 0.15rem solid #337AB7 !important;
+}
+
+/*失去焦点2*/
+
+.lose {
+    border: 0.1rem solid red;
+}
+
+/*获取焦点2*/
+
+.gain {
+    border: 0.15rem solid #337AB7 !important;
+}
+
+.prompt {
+    width: 80%;
+    height: 4rem;
+    text-align: center;
+    margin: 0.5rem 0;
+    color: red;
+    line-height: 4rem;
+    margin: auto;
+}
+
+#btn {
+    display: block;
+    width: 90%;
+    height: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    background: #29BDE0;
+    border: 0;
+    border-radius: 0.5rem;
+    outline-style: none;
+    font-size: 2rem;
+    color: #FFFFFF;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px ) {
+    .text {
+        width: 60%;
+    }
+}

@@ -37,10 +37,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             }
         })
         .state('success.add', {
-            url: '/add',
+            url: '/add?id',
             views: {
                 'child': {
                     templateUrl: '../text-6/Add.html',
+                    controller: 'myTestCtrl',
+
                 }
             }
         })

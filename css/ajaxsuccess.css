@@ -5,7 +5,9 @@
 			.while {
 				border-bottom: 0.3rem solid #FCF8E3;
 			}
-			
+			body{
+				padding: 0!important;
+			}
 			.text {
 				line-height: 5rem;
 				background: #FFA500;
@@ -199,7 +201,6 @@
 				float: left;
 				margin-top: 0.8rem;
 			}
-			
 			.content input {
 				width: 68%;
 				height: 34px;
@@ -211,9 +212,13 @@
 			
 			.long {
 				width: 20%!important;
-				margin-bottom: 2rem;
+				margin-right: 3rem;
+				float: left;
 			}
-			
+			.lose{
+				width: 20%!important;
+			}
+
 			.content span {
 				margin-right: 2.8rem;
 			}
@@ -253,32 +258,77 @@
 			}
 			
 			.designation {
+				line-height: 2rem;
 				width: 70%!important;
 				margin: auto;
 				height: 2rem;
 				border-bottom: 0.1rem solid #AAAAAA;
+				padding-bottom: 3rem;
 			}
 			
 			.designation li {
+				width: 20%	;
 				list-style: none;
 				float: left;
-				margin-left: 10rem;
 				text-align: center;
 				font-weight: 700;
 			}
-			
+			.designa{
+				width: 70%!important;
+				margin: auto;
+				height: 5rem;
+				border-bottom: none;
+			}
+			.designa li{
+				width: 20%;
+				height: 50px;
+				float: left;
+				text-align: center;
+				list-style: none;
+				word-wrap: break-word;
+				border: 0.1rem solid #ffff;
+				line-height: 5rem;
+			}
+			.lihe{
+				line-height: 2rem;
+			}
+			.designa button{
+				width: 6rem;
+				line-height: 2.5rem;
+				position: relative;
+				padding-left: 2rem;
+				border: none;
+				color: #fff;
+				border-color: #4cae4c;
+			}
 			.bon {
 				padding: 6px 12px;
 				background: #5cb85c;
 				border: none;
 				color: #FFFFFF;
-				margin-top: 5rem;
+				margin-top: 3rem;
 			}
-			
+			.operate{
+				position: absolute;
+				top:24%;
+				left: 4px;
+				display: inline-block;
+				float: left;
+				margin-right: 2px!important;
+				display: inline-block;
+			}
 			.left-but {
-				margin-left: 15%;
+				margin-left: 13%;
 			}
-			
+			#Progress{
+				width: 80%;
+				height: 2rem;
+				margin-top: 1.5rem;
+				text-align: center;
+				line-height: 28px;
+				font-weight: bold;
+				overflow: hidden;
+			}
 			.right-but {
 				background: #FFFFFF;
 				color: #000000;
@@ -305,6 +355,12 @@
 			
 			.shows input {
 				width: 4.5rem!important;
+			}
+			.referring{
+				width: 100%;
+			}
+			.show img{
+				width: 20%!important;
 			}
 			@media only screen and (max-width:768px) {
 				.sidebar {

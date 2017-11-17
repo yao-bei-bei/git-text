@@ -9,7 +9,7 @@ html {
 
 body {
     height: 100%;
-    background: url(../img/apic21133.jpg) no-repeat;
+    background: url(../../img/apic21133.jpg) no-repeat;
     background-size: cover;
     height: -webkit-fill-available;
 }
@@ -22,7 +22,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: url(../img/apic19500.jpg) no-repeat;
+    background: url(../../img/apic19500.jpg) no-repeat;
     background-size: 100% 100%;
     opacity: 0.8;
 }

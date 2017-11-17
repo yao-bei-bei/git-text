@@ -1,7 +1,8 @@
 <!--Article列表-->
 
-<div class="col-md-9 column">
+<div class="col-md-9 column" id="myTestCtrl">
     <form class="form-horizontal" role="form">
+
         <fieldset class="search">
             <div class="form-group">
                 <label class="col-md-1 control-label" for="ds_host">修改时间</label>
@@ -55,7 +56,7 @@
         </fieldset>
         <fieldset class="search" style="padding-bottom: 21%">
             <table class="table table-condensed">
-                <caption>Article列表
+                <caption>Article列表{{self.id}}
                     <a ui-sref="success.add">
                         <button class="but">新增</button>
                     </a>
@@ -73,7 +74,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="bot" ng-repeat="self in demoLists">
+
+                <tr class="bot" ng-repeat="self in demoLists | orderBy:demoLists.createAt">
+
                     <td>{{$index+1}}</td>
                     <td>{{self.title}}</td>
                     <td>{{self.type|type}}</td>
@@ -82,9 +85,10 @@
                     <td>{{self.author}}</td>
                     <td>{{self.status |status}}</td>
                     <td>
-                        <a>上架</a>
-                        <a>编辑</a>
-                        <a>删除</a>
+
+                        <a data-ng-click="off(self.id,self.status)" style="cursor: pointer;">{{self.status|off}}</a>
+                        <a  ng-click="edit(self.id)" style="cursor: pointer;">编辑</a>
+                        <a data-ng-click="delete(self.id)" style="cursor: pointer;">删除</a>
                     </td>
                 </tr>
                 </tbody>
@@ -96,19 +100,12 @@
 
                     <a ng-class="{true:'currentStep',false:'step'}[$index+1==params.page]" ng-repeat="num in pageNum"
                        ng-click="setPage($index+1)">{{$index+1}}</a>  <!-- ng-repeat 动态生成页码 -->
-
-
-
                     <a class="step nextLink" ng-click="nextPage()">下一页</a>
-
-
-
                     <span class="step" style="background: #FFFFFF;border: none;">跳转到
                     <input type="text" ng-model="params.page" style="width: 30px; text-align: center;height: 24px;"
                            value="{{params.page}}"/>页<button ng-click="setPage()">确定</button>
                 </span>
             </div>
-
         </fieldset>
 
     </form>

@@ -1,118 +1,85 @@
-<div class="col-md-9 column">
-	<form class="form-horizontal" role="form" style="padding-bottom: 25rem;">
+<div class="col-md-9 column" xmlns="http://www.w3.org/1999/html">
+	<form class="form-horizontal ng-invalid ng-invalid-required ng-dirty ng-valid-parse"  name="myForm"  style="padding-bottom: 25rem;">
 		<div class="coping">
 			<div class="nosecone">
 				<strong>新增Article</strong>
 			</div>
 			<div class="content">
-				
 				<strong>标题名称</strong>
-				<input type="text" class="form-control"><br />
+				<input type="text"  class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="data.title"><br />
+                <div class="reveal" style="width:100%; margin-bottom: 2rem;height: 3.5rem">
 				<strong><span>类</span>型</strong>
-				<select id="disabledSelect" class="form-control long">
-					<option>请选择</option>
-					<option>首页Banner</option>
-					<option>找职位Banner</option>
-					<option>找精英Banner</option>
-					<option>行业大图</option>
+				<select  class="form-control long ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="data.type"
+						 ng-options="option.value as option.showText for option in
+                            [{value:'',showText:'请选择'},{value:0,showText:'首页banner'},{value:1,showText:'找职位banner'},
+                            {value:2,showText:'找精英banner'},{value:3,showText:'行业大图'}
+                            ]">
+			    </select>
+					<select class="form-control lose ng-pristine ng-untouched ng-scope ng-invalid ng-invalid-required" id="lose" ng-model="data.industry" ng-if="data.type==3"
+							ng-options="option.value as option.showText for option in
+                            [{value:'',showText:'请选择'},{value:0,showText:'移动互联网'},{value:1,showText:'电子商务'},
+                            {value:2,showText:'企业服务'},{value:3,showText:'O2O'},
+                            {value:4,showText:'教育'},{value:5,showText:'金融'},
+                            {value:6,showText:'游戏'}]">
 				</select>
-				<strong>说&#12288&#12288明</strong>
-				<input type="text" class="form-control"><br />
+                </div>
+                <div class="col-lg-12" style="padding: 0;">
+                <strong style="float: left">说&#12288&#12288明</strong>
+                        <div rich-text ng-model="data.content" style=" width: 68%; float: right; margin-right: 15%; margin-bottom: 20px"></div>
+                </div>
+				<!--<input type="text" class="form-control ng-pristine ng-untouched ng-valid" ng-model="data.content"><br />-->
 				<strong>跳转链接</strong>
-				<input type="text" class="form-control"><br />
-				<strong>配图</strong>
-				<label style="display: inline-block; color: #000000; border: 0.1rem solid #0000FF; width: 10rem; line-height: 3.2rem; text-align: center;background: #00F7DE; border-radius: 0.5rem;">
-					选择文件
-				<input type="file" name="" id="myFile" value="" style="display: none;"/>
-				</label>
-            <div id="showFile" class="show" style="padding-left: 10rem;" >
-            	
-            </div>
+				<input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="data.url"><br />
+				<strong>配&#12288&#12288图</strong>
+				<button  class="btn btn-primary" ng-class="{'bg-bbbbbb':imgDisabled}" style="width:85px; margin-top:-3px; height:30px; position: relative;"
+						 img-upload is-show="isShow">
+				</button>
 				<div class="word">配图浏览</div>
+				<img style="margin-left: 20%; width: 50%; margin-bottom: 20px" ng-if="receivedId" ng-src="{{data.img}}">
+				<div class="show" style="padding-left: 17%;" >
+					<img ng-src="{{data.img}}" ng-show="thumb.imgSrc"   style="width: 500px;margin-top: 20px;margin-bottom: 20px"/>
+				</div>
 				<ul class="designation">
-					<li>图片名</li>
+					<li style="">图片名</li>
 					<li>文件大小</li>
 					<li>进度</li>
 					<li>操作</li>
-					<li>操作</li>
+					<li>操作{{all}}</li>
 				</ul>
-				<button class="bon left-but" id="upLoadBtn">立即上线</button>
-				<button class="bon">存为草稿</button>
-				<a ui-sref="success.article"><button class="bon right-but">取消</button></a>
+				<ul class="designa lihe" ng-show="isShow">
+					<li style="line-height: 3rem" ng-model="fileName">{{fileName}}</li>
+					<li>{{size&&(size/1024/1024|limitTo:4)+'mb'}}</li>
+                        <li>
+							<progress id="Progress" ng-value="a"  max="100" value="0"></progress>
+						</li>
+					<li>
+						<a data-ng-bind="ishide" style="font-size: 20px; color: #000000">
+
+						</a>
+					</li>
+					<li>
+						<button style="background: #4cae4c" id="upLoadBtn"  ng-click="saveClick()"  ng-class="{'bg-bbbbbb':submitDisabled}">
+							<span class="glyphicon glyphicon-upload operate	"></span>
+							上传
+						</button>
+						<button style="background: red" ng-click="toggle()">
+							<span class="glyphicon glyphicon-trash operate"></span>
+							删除
+						</button>
+					</li>
+				</ul>
+				<div class="referring">
+				<button type="button" class="btn bon left-but" id="upLoadBtn" disabled="disabled"
+						ng-disabled="!data.img||!data.url||!data.title||!data.type&&data.type!==0||data.type==3&&!data.industry&&data.type===''"
+						ng-click="addArticl(2)"
+				>立即上线</button>
+				<button type="button" disabled="disabled" class="btn bon"
+						ng-disabled="!data.img||!data.url||!data.title||!data.type&&data.type!==0||data.type==3&&!data.industry&&data.type===''"ng-click="addArticl(1)"
+				>存为草稿</button>
+				</div>
+				<a ui-sref="success.article"><button class="bon right-but" >取消</button></a>
 			</div>
 		</div>
 	</form>
 </div>
-<script>
-	var fileUpload = {
-			//dom元素
-			dom: {
-				chooseFile: document.getElementById('myFile'),
-				showFile: document.getElementById('showFile'),
-				upLoadBtn: document.getElementById('upLoadBtn')
-			},
-			//选择的图片文件
-			files: undefined
-		}
-		//选择文件之后 onchange
-		fileUpload.dom.chooseFile.onchange = function() {
-			fileUpload.files = this.files[0];
-			readFile(fileUpload.files);
-		}
-		//上传按钮点击
-		fileUpload.dom.upLoadBtn.onclick = function() {
-			var data = new FormData();
-			if(!fileUpload.files) {
-				return;
-			};
-			data.append('file', fileUpload.files);
-			var promise = ajax({
-				method: 'post',
-				url: '/carrots-admin-ajax/a/u/img/task',
-				data: data
-			});
-			promise.then(function(res) {
-				if(res.code === 0 && res.message == 'success') {
-					console.log(res.data);
-				} else {
-					console.log(res.message);
-				}
-			}, function(e) {
-				alert(e);
-			})
-		}
-		//FileReader本地预览文件
-		var readFile = function(file) {
-			var instance = new FileReader();
-			instance.readAsDataURL(file);
-			instance.onload = function() {
-				var resUrl = this.result;
-				fileUpload.dom.showFile.appendChild(createElement('img', { 'src': resUrl }));
-			}
-		}
-		//创建dom元素
-		var createElement = function(tagName, property) {
-			//property为obj
-			var Node = document.createElement(tagName);
-			for(var i in property) {
-				Node.setAttribute(i, property[i]);
-			}
-			return Node;
-		};
-		//封装ajax
-		var ajax = function(config) {
-			var xhr = new XMLHttpRequest();
-			xhr.open(config.method, config.url, config.async || true);
-			return new Promise(function(resolve, reject) {
-				xhr.onreadystatechange = function() {
-					if(xhr.status === 200 && xhr.readyState === 4) {
-						resolve(JSON.parse(xhr.responseText));
-					}
-				}
-				xhr.onerror = function(e) {
-					reject(e);
-				}
-				xhr.send(config.data || '');
-			})
-		}
-</script>
+

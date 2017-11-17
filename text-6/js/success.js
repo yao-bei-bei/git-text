@@ -1,5 +1,8 @@
-app.controller('siteCtrl', function ($scope, $http, $state,$filter) {
+app.controller('siteCtrl', function ($scope, $http, $state,$filter,$stateParams) {
     //列表
+
+
+    console.log($stateParams);
     $scope.demoLists = [];
     $scope.pagination = [];
 
@@ -15,6 +18,12 @@ app.controller('siteCtrl', function ($scope, $http, $state,$filter) {
         status:'',
         size:10,
     };
+    ~function (v, e) {
+        for (var i in $stateParams) {
+            $scope.params[i] = $stateParams[i];
+            console.log( $scope.params[i])
+        }
+    }();
     $scope.res= function () {
         var promise= $http({
             method: 'GET',

@@ -134,7 +134,7 @@ app.controller("myTestCtrl", function ($scope, $http, $state, $stateParams, $fil
                     params :$scope.data
                 }).then(function (res) {
                     if (res.data.code == 0) {
-                        $state.go('success.article', {reload: true})
+                        $state.go('success.article',{page:1,size:10}, {reload: true})
                     }
                 }, function (res) {
                     alert(res.data.message)
@@ -150,7 +150,7 @@ app.controller("myTestCtrl", function ($scope, $http, $state, $stateParams, $fil
                 'data': $scope.data
             }).then(function (res) {
                 if (res.data.code == 0) {
-                    $state.go('success.article', {reload: true})
+                    $state.go('success.article',{page:1,size:10}, {reload: true})
                 }
             }, function (res) {
                 alert(res.data.message)
